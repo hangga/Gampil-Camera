@@ -1,0 +1,3 @@
+rootProject.name = "GampilCamera"
+include ':app'
+include ':gampil'
