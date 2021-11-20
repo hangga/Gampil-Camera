@@ -6,7 +6,7 @@ Embed camera preview with API Camera 2 with surfaceview, just paste it in the la
 ## Setup
 
 **Gradle**
-```
+```gradle
 allprojects {
     repositories {
     	...
@@ -15,7 +15,7 @@ allprojects {
 }
 ```
 
-```
+```gradle
 dependencies {
     implementation 'com.github.hangga:Gampil-Camera:v1.1.1'
 }
@@ -23,19 +23,19 @@ dependencies {
 
 ```
 ## How to use
-- Add GampilPreview to your activity layout. 
-```
+- **Add GampilPreview to your activity layout**
+```xml
 <id.hangga.gampil.GampilPreview
     android:id="@+id/gampilPreview"
     android:layout_width="match_parent"
     android:layout_height="match_parent"/>
 ```
-- Initialization in java
-```
+- **Initialization**
+```java
 GampilPreview gampilPreview = findViewById(R.id.gampilPreview);
 ```
-- Take Picture
-```
+- **Take Picture**
+```java
 gampilPreview.takePicture(new GampilPreview.OnTakePicture() {
     @Override
     public void onPictureTaken(File file, Bitmap bitmap) {
