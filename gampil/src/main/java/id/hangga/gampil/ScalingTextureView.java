@@ -5,6 +5,8 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.TextureView;
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 public class ScalingTextureView extends TextureView {
     private static final String TAG = "ScalingTextureView";
@@ -18,8 +20,24 @@ public class ScalingTextureView extends TextureView {
     private int mScreenWidth = 0;
     private int mScreenHeight = 0;
 
+    public ScalingTextureView(@NonNull Context context) {
+        super(context);
+    }
 
-    public ScalingTextureView(Context context) {
+    public ScalingTextureView(@NonNull Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    public ScalingTextureView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+    }
+
+    public ScalingTextureView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        super(context, attrs, defStyleAttr, defStyleRes);
+    }
+
+
+    /*public ScalingTextureView(Context context) {
         this(context, null);
     }
 
@@ -29,7 +47,7 @@ public class ScalingTextureView extends TextureView {
 
     public ScalingTextureView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-    }
+    }*/
 
     public void setAspectRatio(int width, int height, int screenWidth, int screenHeight) {
         if (width < 0 || height < 0) {

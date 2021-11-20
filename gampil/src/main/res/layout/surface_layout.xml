@@ -1,54 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:id="@+id/parent_layout">
-
-    <id.hangga.gampil.ScalingTextureView
-        android:id="@+id/texture"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:ignore="MissingClass"/>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent_layout">
 
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/stillshot_container"
-        android:visibility="visible">
+  <id.hangga.gampil.ScalingTextureView
+      android:id="@+id/texture"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"/>
 
 
-      <RelativeLayout
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:padding="12dp"
-          android:id="@+id/close_stillshot_view"
-          android:layout_alignParentStart="true"
-          android:layout_alignParentLeft="true"
-          android:layout_marginLeft="4dp"
-          android:layout_marginStart="4dp"
-          android:layout_marginTop="10dp"
-          android:animateLayoutChanges="true">
+  <ImageButton
+      android:layout_width="60dp"
+      android:layout_height="1dp"
+      android:layout_alignParentBottom="true"
+      android:layout_gravity="center"
+      android:padding="10dp"
+      android:scaleType="fitXY"
+      tools:ignore="ContentDescription"/>
 
-        <!--<ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/x_white_border"
-            android:layout_centerInParent="true"/>-->
-
-
-      </RelativeLayout>
-
-
-    </RelativeLayout>
-
-    <ImageButton
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center"
-        android:background="#0000ffff"
-        android:padding="10dp"
-        android:scaleType="fitXY"
-        tools:ignore="ContentDescription"/>
 </RelativeLayout>
