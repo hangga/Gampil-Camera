@@ -40,6 +40,6 @@ gampilPreview.takePicture(new GampilPreview.OnTakePicture() {
     @Override
     public void onPictureTaken(File file, Bitmap bitmap) {
         // Your code
-	}
+    }
 });
 ```
