@@ -26,9 +26,9 @@ dependencies {
 - Add GampilPreview to your activity layout. 
 ```
 <id.hangga.gampil.GampilPreview
-      android:id="@+id/gampilPreview"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"/>
+    android:id="@+id/gampilPreview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"/>
 ```
 - Initialization in java
 ```
@@ -37,9 +37,9 @@ GampilPreview gampilPreview = findViewById(R.id.gampilPreview);
 - Take Picture
 ```
 gampilPreview.takePicture(new GampilPreview.OnTakePicture() {
-	@Override
-        public void onPictureTaken(File file, Bitmap bitmap) {
-        	// Your code
+    @Override
+    public void onPictureTaken(File file, Bitmap bitmap) {
+        // Your code
 	}
 });
 ```
