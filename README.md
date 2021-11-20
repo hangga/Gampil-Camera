@@ -13,7 +13,7 @@ allprojects {
 
 ```
 dependencies {
-    implementation 'com.github.hangga:Gampil-Camera:v1.0'
+    implementation 'com.github.hangga:Gampil-Camera:v1.1.1'
 }
 
 
