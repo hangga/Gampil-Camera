@@ -5,8 +5,8 @@ Embed camera preview with API Camera 2 with surfaceview, just paste it in the la
 ```
 allprojects {
     repositories {
-			...
-      maven { url 'https://jitpack.io' }
+    	...
+	maven { url 'https://jitpack.io' }
     }
 }
 ```
