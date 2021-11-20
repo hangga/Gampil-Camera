@@ -36,11 +36,12 @@ GampilPreview gampilPreview = findViewById(R.id.gampilPreview);
 ```
 
 - **Set Camera Facing**  
-If you use the front camera or selfie (default). 
+
+    If you use the front camera or selfie (default). 
 ```java
 gampilPreview.setCameraFacing(GampilPreview.CAMERA_FRONT);
 ```
-To use the rear camera. 
+    To use the rear camera. 
 ```java
 gampilPreview.setCameraFacing(GampilPreview.CAMERA_BACK);
 ```
