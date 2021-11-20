@@ -1,6 +1,8 @@
 # Gampil-Camera
 Embed camera preview with API Camera 2 with surfaceview, just paste it in the layout.
 
+<img width="300" src="https://github.com/hangga/Gampil-Camera/blob/main/skrinsut.png?raw=true"/>
+
 ## Setup
 
 **Gradle**
