@@ -47,6 +47,7 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_gravity="center"
+        android:background="#0000ffff"
         android:padding="10dp"
         android:scaleType="fitXY"
         tools:ignore="ContentDescription"/>
