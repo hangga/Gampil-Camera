@@ -56,4 +56,4 @@ gampilPreview.takePicture(new GampilPreview.OnTakePicture() {
 });
 ```
 ## Sample Project
-- <a href="https://github.com/hangga/Gampil-Sample" target="_blank">checkout<a/>
+- <a href="https://github.com/hangga/Gampil-Sample" target="_blank">checkout</a>
