@@ -46,19 +46,25 @@ gampilPreview.setFacing(Facing.BACK_CAMERA);
 ```
 
 
-- **Take Picture**
+- **Take Picture**  
+Params:
+quality – Compress bitmap quality  
+takePhotoListener – CallBack after takePicture
+```java
+public void takePhoto(int quality, TakePhotoListener takePhotoListener)
+```
+- An example of how to capture a photo is like the code below.   
+   
 ```java
 gampilPreview.takePhoto(80, new TakePhotoListener() {
     @Override
     public void onPhotoTaken(Bitmap bitmap, File file) {
-        imgCaptured.setImageBitmap(bitmap);
-        gampilPreview.setVisibility(View.GONE);
-        btnTakePicture.setEnabled(false);
+        // your code
     }
 
     @Override
-        public void onPhotoError(String message) {
-        Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
+    public void onPhotoError(String message) {
+        // your code
     }
 });
 ```
