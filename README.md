@@ -34,6 +34,7 @@ GampilPreview gampilPreview = findViewById(R.id.gampilPreview);
 ```
 
 - **Set Camera Facing**  
+  You can choose front or back camera easily.   
 
 ```java
 gampilPreview.setFacing(Facing.FRONT_CAMERA); // Default
