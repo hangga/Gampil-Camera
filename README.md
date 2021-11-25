@@ -1,5 +1,5 @@
 # Gampil-Camera
-Embed camera preview with API Camera2 and surfaceview, just paste in layout. It's very easy. 
+Embed camera preview with API Camera and surfaceview, just paste in layout. It's very easy. 
 
 <img width="300" src="https://github.com/hangga/Gampil-Camera/blob/main/capture-2021-11-25-200734.png?raw=true"/>
 
