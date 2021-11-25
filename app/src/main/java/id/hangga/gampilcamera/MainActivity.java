@@ -1,19 +1,19 @@
 package id.hangga.gampilcamera;
 
 import android.Manifest;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Build;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
 import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
+import id.hangga.gampil.Facing;
 import id.hangga.gampil.GampilPreview;
+import id.hangga.gampil.TakePhotoListener;
 
 import java.io.File;
 
@@ -21,16 +21,23 @@ import java.io.File;
 public class MainActivity extends AppCompatActivity {
 
     private static final int REQUEST_CODE = 1234;
-    private boolean mPermissions;
-    private GampilPreview gampilPreview;
     ImageView imgCaptured;
     Button btnTakePicture;
+    private final String[] permissions = {/*
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            android.Manifest.permission.WRITE_EXTERNAL_STORAGE,*/
+            Manifest.permission.CAMERA
+    };
+    private boolean mPermissions;
+    private GampilPreview gampilPreview;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         gampilPreview = findViewById(R.id.gampilPreview);
+        gampilPreview.setFacing(Facing.FRONT_CAMERA);
         imgCaptured = findViewById(R.id.imgCaptured);
         btnTakePicture = findViewById(R.id.btnTakePicture);
 
@@ -38,12 +45,17 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                gampilPreview.takePicture(new GampilPreview.OnTakePicture() {
+                gampilPreview.takePhoto(60, new TakePhotoListener() {
                     @Override
-                    public void onPictureTaken(File file, Bitmap bitmap) {
+                    public void onPhotoTaken(Bitmap bitmap, File file) {
                         imgCaptured.setImageBitmap(bitmap);
                         gampilPreview.setVisibility(View.GONE);
                         btnTakePicture.setEnabled(false);
+                    }
+
+                    @Override
+                    public void onPhotoError(String message) {
+
                     }
                 });
             }
@@ -54,46 +66,33 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        verifyPermissions();
-        //gampilPreview.onResume();
+        startPreview();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        gampilPreview.onPause();
+        gampilPreview.stop();
     }
 
-
-    public void verifyPermissions() {
-        String[] permissions = {
-                android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.CAMERA};
-        if (ContextCompat.checkSelfPermission(this.getApplicationContext(),
-                permissions[0]) == PackageManager.PERMISSION_GRANTED
-                && ContextCompat.checkSelfPermission(this.getApplicationContext(),
-                permissions[1]) == PackageManager.PERMISSION_GRANTED) {
-            mPermissions = true;
-            gampilPreview.onResume();
+    void startPreview(){
+        if (Utils.allPermissionsGranted(this, permissions)) {
+            gampilPreview.start();
         } else {
             ActivityCompat.requestPermissions(
                     MainActivity.this,
-                    permissions,
+                    new String[]{Manifest.permission.CAMERA},
                     REQUEST_CODE
             );
         }
     }
 
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
-        if (requestCode == REQUEST_CODE) {
-            if (mPermissions) {
-                gampilPreview.onResume();
-            } else {
-                verifyPermissions();
-            }
+        if (Utils.allPermissionsGranted(this)) {
+            startPreview();
         }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 }

@@ -7,6 +7,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.Size;
 import android.view.WindowInsets;
+import android.view.WindowMetrics;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 
@@ -16,6 +17,24 @@ import java.util.Comparator;
 import java.util.List;
 
 public class Utility {
+
+    public static ScreenSize getScreenSize(@NonNull Activity activity) {
+        ScreenSize screenSize;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            WindowMetrics windowMetrics = activity.getWindowManager().getCurrentWindowMetrics();
+            Insets insets = windowMetrics.getWindowInsets()
+                    .getInsetsIgnoringVisibility(WindowInsets.Type.systemBars());
+            screenSize = new ScreenSize(windowMetrics.getBounds().width() - insets.left - insets.right,
+                    windowMetrics.getBounds().height() - insets.top - insets.bottom);
+            return screenSize;
+        } else {
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+            screenSize = new ScreenSize(displayMetrics.widthPixels, displayMetrics.heightPixels);
+            return screenSize;
+        }
+    }
+
     /**
      * Given {@code choices} of {@code Size}s supported by a camera, choose the smallest one that
      * is at least as large as the respective texture view size, and that is at most as large as the
@@ -86,10 +105,10 @@ public class Utility {
 
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    /*@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public static Size getScreenSize(@NonNull Activity activity) {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         return new Size(displayMetrics.widthPixels, displayMetrics.heightPixels);
-    }
+    }*/
 }
