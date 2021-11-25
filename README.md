@@ -17,7 +17,7 @@ allprojects {
 
 ```gradle
 dependencies {
-    implementation 'com.github.hangga:Gampil-Camera:v1.1.1'
+    implementation 'com.github.hangga:Gampil-Camera:v1.1.2'
 }
 
 
@@ -38,20 +38,33 @@ GampilPreview gampilPreview = findViewById(R.id.gampilPreview);
 - **Set Camera Facing**  
 
 ```java
-gampilPreview.setCameraFacing(GampilPreview.CAMERA_FRONT); // Default
+gampilPreview.setFacing(Facing.FRONT_CAMERA); // Default
 ```
 
 ```java
-gampilPreview.setCameraFacing(GampilPreview.CAMERA_BACK);
+gampilPreview.setFacing(Facing.BACK_CAMERA);
 ```
 
 
-- **Take Picture**
+- **Take Picture**  
+Params:
+quality – Compress bitmap quality  
+takePhotoListener – CallBack after takePicture
 ```java
-gampilPreview.takePicture(new GampilPreview.OnTakePicture() {
+public void takePhoto(int quality, TakePhotoListener takePhotoListener)
+```
+- An example of how to capture a photo is like the code below.   
+   
+```java
+gampilPreview.takePhoto(80, new TakePhotoListener() {
     @Override
-    public void onPictureTaken(File file, Bitmap bitmap) {
-        // Your code
+    public void onPhotoTaken(Bitmap bitmap, File file) {
+        // your code
+    }
+
+    @Override
+    public void onPhotoError(String message) {
+        // your code
     }
 });
 ```
