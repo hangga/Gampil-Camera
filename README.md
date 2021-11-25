@@ -17,7 +17,7 @@ allprojects {
 
 ```gradle
 dependencies {
-    implementation 'com.github.hangga:Gampil-Camera:v1.1.1'
+    implementation 'com.github.hangga:Gampil-Camera:v1.1.2'
 }
 
 
