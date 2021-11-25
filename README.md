@@ -1,6 +1,5 @@
-# Gampil-Camera
+# Gampil Camera
 A simple library to make it easier for you to embed a camera and surfaceview in an activity in your application. 
-<img width="300" src="https://github.com/hangga/Gampil-Camera/blob/main/capture-2021-11-25-200734.png?raw=true"/>
 
 ## Setup
 
@@ -67,5 +66,7 @@ gampilPreview.takePhoto(80, new TakePhotoListener() {
     }
 });
 ```
+
 ## Sample Project
+<img width="300" src="https://github.com/hangga/Gampil-Camera/blob/main/capture-2021-11-25-200734.png?raw=true"/>  
 - <a href="https://github.com/hangga/Gampil-Sample" target="_blank">checkout</a>
