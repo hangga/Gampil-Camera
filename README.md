@@ -48,7 +48,7 @@ gampilPreview.setFacing(Facing.BACK_CAMERA);
 
 
 #### 3.2. Take Picture
-**takePhoto(int quality, TakePhotoListener takePhotoListener)**
+**takePhoto(int quality, TakePhotoListener takePhotoListener)**   
 Params:
 quality – Compress bitmap quality  
 takePhotoListener – CallBack after takePicture   
