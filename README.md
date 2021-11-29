@@ -47,12 +47,15 @@ gampilPreview.setFacing(Facing.BACK_CAMERA);
 ```
 
 
-#### 3.2. Take Picture
+#### 3.2. Take Picture   
+This is a method for capturing photos from the camera which results in Bitmaps and Files.    
 **takePhoto(int quality, TakePhotoListener takePhotoListener)**   
 Params:
+```
 quality – Compress bitmap quality  
-takePhotoListener – CallBack after takePicture   
-- An example of how to capture a photo is like the code below.   
+takePhotoListener – CallBack after takePicture 
+```
+An example of how to capture a photo is like the code below.   
    
 ```java
 gampilPreview.takePhoto(80, new TakePhotoListener() {
