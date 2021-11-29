@@ -21,19 +21,21 @@ dependencies {
 
 ```
 ## How to use
-- **Add GampilPreview to your activity layout**
+### 1. Add GampilPreview to your activity layout
 ```xml
 <id.hangga.gampil.GampilPreview
     android:id="@+id/gampilPreview"
     android:layout_width="match_parent"
     android:layout_height="match_parent"/>
 ```
-- **Initialization**
+### 2. Initialization
+Initiate object in your java code. 
 ```java
 GampilPreview gampilPreview = findViewById(R.id.gampilPreview);
 ```
-
-- **Set Camera Facing**  
+### 3. Method
+Methods you can use. 
+#### 3.1. Set Camera Facing 
   You can choose front or back camera easily.   
 
 ```java
@@ -45,13 +47,11 @@ gampilPreview.setFacing(Facing.BACK_CAMERA);
 ```
 
 
-- **Take Picture**  
+#### 3.2. Take Picture
+**takePhoto(int quality, TakePhotoListener takePhotoListener)**
 Params:
 quality – Compress bitmap quality  
-takePhotoListener – CallBack after takePicture
-```java
-public void takePhoto(int quality, TakePhotoListener takePhotoListener)
-```
+takePhotoListener – CallBack after takePicture   
 - An example of how to capture a photo is like the code below.   
    
 ```java
