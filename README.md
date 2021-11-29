@@ -34,10 +34,14 @@ Initiate object in your java code.
 GampilPreview gampilPreview = findViewById(R.id.gampilPreview);
 ```
 ### 3. Method
-Methods you can use. 
+The methods in Gampil you can use. 
 #### 3.1. Set Camera Facing 
-  You can choose front or back camera easily.   
-
+**setFacing(int facing)**   
+Param : facing = **Facing.FRONT_CAMERA** or **Facing.BACK_CAMERA**   
+<br/>
+You can choose front or back camera easily. If you don't call this method, it will use the front camera by default.   
+<br/>
+Example :
 ```java
 gampilPreview.setFacing(Facing.FRONT_CAMERA); // Default
 ```
@@ -49,12 +53,10 @@ gampilPreview.setFacing(Facing.BACK_CAMERA);
 
 #### 3.2. Take Picture   
 This is a method for capturing photos from the camera which results in Bitmaps and Files.    
+<br/>
 **takePhoto(int quality, TakePhotoListener takePhotoListener)**   
-Params:
-```
-quality – Compress bitmap quality  
-takePhotoListener – CallBack after takePicture 
-```
+Params: quality : (int) Compress bitmap quality. TakePhotoListener : CallBack after takePicture   
+<br/>
 An example of how to capture a photo is like the code below.   
    
 ```java
