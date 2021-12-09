@@ -1,6 +1,32 @@
-
 plugins {
     id 'com.android.library'
+    id 'maven-publish'
+}
+
+group = 'id.hangga.gampilcamera'
+version = '1.0.3'
+archivesBaseName = "gampil"
+
+publishing {
+
+    publications {
+        aar(MavenPublication) {
+            groupId group
+            artifactId archivesBaseName
+            version project.version
+            artifact("$buildDir/outputs/aar/${archivesBaseName}-release.aar")
+        }
+    }
+
+    repositories {
+        maven {
+            url 'https://repo.repsy.io/mvn/hangga/gampil'
+            credentials {
+                username 'hangga'
+                password 'ATyfNGFsu9wuj43'
+            }
+        }
+    }
 }
 
 android {
@@ -10,8 +36,8 @@ android {
     defaultConfig {
         minSdkVersion 19
         versionCode 1
-        versionName "1.1.2"
-        archivesBaseName = "gampil-v${versionName}"
+        versionName "${version}"
+        archivesBaseName = archivesBaseName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
