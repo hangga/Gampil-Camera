@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'id.hangga.gampilcamera'
-version = '1.0.3'
+version = '1.0.4'
 archivesBaseName = "gampil"
 
 publishing {
