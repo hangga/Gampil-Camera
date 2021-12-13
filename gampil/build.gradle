@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'id.hangga.gampilcamera'
-version = '1.0.4'
+version = '1.0.0'
 archivesBaseName = "gampil"
 
 publishing {
@@ -20,14 +20,15 @@ publishing {
 
     repositories {
         maven {
-            url 'https://repo.repsy.io/mvn/hangga/gampil'
-            credentials {
-                username 'hangga'
-                password 'ATyfNGFsu9wuj43'
+            url 'https://pkgs.dev.azure.com/bazeniancode/bazeniancode/_packaging/gampil/maven/v1'
+            credentials{
+                username 'bazeniancode'
+                password 'vq7qbuxidmvmbbera5vlzsy7yatnbmzj7j5vip4ea434cok2rvha'
             }
         }
     }
 }
+
 
 android {
     compileSdkVersion 30
