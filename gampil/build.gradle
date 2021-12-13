@@ -23,7 +23,7 @@ publishing {
             url 'https://pkgs.dev.azure.com/bazeniancode/bazeniancode/_packaging/gampil/maven/v1'
             credentials{
                 username 'bazeniancode'
-                password 'vq7qbuxidmvmbbera5vlzsy7yatnbmzj7j5vip4ea434cok2rvha'
+                password '<passwordnya>'
             }
         }
     }
